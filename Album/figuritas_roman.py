@@ -1,6 +1,6 @@
-
 '''
-Código hecho por @RomaXlsm, RomanRipari@gmail.com
+Código hecho por Roma
+TW: @RomaXlsm, RomanRipari@gmail.com
 En base a ejercicios del Curso de Python de la UNSAM.
 '''
 
@@ -16,7 +16,7 @@ def esta_incompleto(A):
 def nuevo_paquete(fig_en_el_album, fig_en_paquete):
     return random.choices(range(fig_en_el_album),k=fig_en_paquete)
 
-def paquetes_necesarios(fig_en_el_album, fig_en_paquete, cambiafigu):
+def paquetes_necesarios(fig_en_el_album, fig_en_paquete, cambiazo):
     album = nuevo_album(fig_en_el_album)
     comprados = 0
     while esta_incompleto(album):
@@ -24,13 +24,13 @@ def paquetes_necesarios(fig_en_el_album, fig_en_paquete, cambiafigu):
         paquete = nuevo_paquete(fig_en_el_album, fig_en_paquete)
 
         # Bloque Repetidas ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-        if cambiafigu:
-            repe = 0
+        if cambiazo:
+            repetidas = 0
             for p in paquete:
                 if album[p - 1] == 1:
-                    repe +=1
+                    repetidas +=1
             #Si hay repetidas, se puede cambiar UNA por paquete
-            if repe > 0:
+            if repetidas > 0:
                 for i,a in enumerate(list(album)):
                     if a == 0:
                         paquete.append(i+1)
@@ -53,13 +53,13 @@ def run():
     precio_album = 650
 
     print("Si no se cambia ninguna figurita:")
-    paquetes = int(test_paquetes(200, fig_en_el_album, fig_en_paquete))
+    paquetes = int(test_paquetes(1000, fig_en_el_album, fig_en_paquete))
     print(f'Un álbum de {fig_en_el_album} figuritas se llena, en promedio,',
         f'comprando {paquetes:0.0f} paquetes.',
         f'Esto costaría ${(((paquetes) * precio_paquete) + precio_album):.2f}\n')
     
     print("Si se cambia una figurita cada vez que sale alguna repetida en el sobre:")
-    paquetes = int(test_paquetes(200, fig_en_el_album, fig_en_paquete, cambiafigu = True))
+    paquetes = int(test_paquetes(1000, fig_en_el_album, fig_en_paquete, cambiafigu = True))
     print(f'Un álbum de {fig_en_el_album} figuritas se llena, en promedio,',
         f'comprando {paquetes:0.0f} paquetes.',
         f'Esto costaría ${(((paquetes) * precio_paquete) + precio_album):.2f}')
