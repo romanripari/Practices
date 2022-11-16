@@ -1,6 +1,7 @@
 '''
 Código hecho por Roma
-TW: @RomaXlsm, RomanRipari@gmail.com
+https://romanariel.ar
+RomanRipari@gmail.com
 En base a ejercicios del Curso de Python de la UNSAM.
 '''
 
@@ -23,7 +24,11 @@ def paquetes_necesarios(fig_en_el_album, fig_en_paquete, cambiazo):
         comprados +=1
         paquete = nuevo_paquete(fig_en_el_album, fig_en_paquete)
 
+        
         # Bloque Repetidas ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+        # En este bloque determinamos la lógica con la que se realizarían los intercambios.
+        # En este caso, optamos por realizar un cambio por paquete, siempre que 
+        # haya tocado al menos una repetida en el sobre.
         if cambiazo:
             repetidas = 0
             for p in paquete:
@@ -46,7 +51,7 @@ def test_paquetes(n, fig_en_el_album, fig_en_paquete, cambiafigu = False):
     return np.mean(Tests)
 
 def run():
-    #Datos Figuritas de Qatar
+    #Datos Figuritas de Qatar (En septiembre de 2022)
     fig_en_el_album = 638
     fig_en_paquete = 5
     precio_paquete = 150
@@ -65,8 +70,12 @@ def run():
         f'Esto costaría ${(((paquetes) * precio_paquete) + precio_album):.2f}')
     
     #gráficos:
+    # Se puede descomentar todo el siguiente bloque para ver en pantalla
+    # un gráfico que muestra cómo se va llenando el álbum. 
+    # Se nota una gran desaceleración al final.
 '''
-import matplotlib.pyplot as plt
+    import matplotlib.pyplot as plt
+    
     plt.plot(calcular_historia_figus_pegadas(fig_en_el_album, precio_paquete))
     plt.xlabel("Cantidad de paquetes comprados.")
     plt.ylabel("Cantidad de figuritas pegadas.")
