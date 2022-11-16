@@ -1,6 +1,6 @@
 '''
 Código hecho por Roma
-https://romanariel.ar
+https://romanripari.ar
 RomanRipari@gmail.com
 En base a ejercicios del Curso de Python de la UNSAM.
 '''
